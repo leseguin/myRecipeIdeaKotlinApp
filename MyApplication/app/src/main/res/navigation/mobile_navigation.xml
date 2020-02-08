@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_event">
+
+    <fragment
+        android:id="@+id/nav_event"
+        android:name="fr.iut.myapplication.ui.event.EventListFragment"
+        android:label="@string/menu_event"
+        tools:layout="@layout/fragment_my_list_event" >
+        <action
+            android:id="@+id/action_nav_event_to_eventFragment"
+            app:destination="@id/eventFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/eventFragment"
+        android:name="fr.iut.myapplication.ui.event.EventFragment"
+        android:label="eventFragment"
+        tools:layout="@layout/fragment_event">
+        <argument
+            android:name="eventid"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_recipes"
+        android:name="fr.iut.myapplication.ui.recipe.RecipeListFragment"
+        android:label="@string/menu_recipes"
+        tools:layout="@layout/fragment_my_list_recipe" >
+        <action
+            android:id="@+id/action_nav_recipes_to_recipeFragment"
+            app:destination="@id/recipeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/recipeFragment"
+        android:name="fr.iut.myapplication.ui.recipe.RecipeFragment"
+        android:label="RecipeFragment"
+        tools:layout="@layout/fragment_recipe">
+        <argument
+            android:name="recipeid"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_recipe_book"
+        android:name="fr.iut.myapplication.ui.recipeBook.RecipeBookListFragment"
+        android:label="RecipeBookFragment"
+        tools:layout="@layout/fragment_my_list_recipe">
+        <action
+            android:id="@+id/action_nav_recipe_book_to_recipeBookFragment"
+            app:destination="@id/recipeBookFragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/recipeBookFragment"
+        android:name="fr.iut.myapplication.ui.recipeBook.RecipeBookFragment"
+        android:label="RecipeBookFragment"
+        tools:layout="@layout/fragment_my_book_recipe"/>
+
+
+
+
+
+
+
+
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="fr.iut.myapplication.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_tools"
+        android:name="fr.iut.myapplication.ui.tools.ToolsFragment"
+        android:label="@string/menu_tools"
+        tools:layout="@layout/fragment_tools" />
+
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="fr.iut.myapplication.ui.share.ShareFragment"
+        android:label="@string/menu_share"
+        tools:layout="@layout/fragment_share" />
+
+</navigation>
