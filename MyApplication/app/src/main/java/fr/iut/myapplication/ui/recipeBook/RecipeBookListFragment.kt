@@ -30,7 +30,7 @@ class RecipeBookListFragment : Fragment(), RecipeBookRecyclerViewAdapter.Callbac
 
     private lateinit var recipeBookViewModel : RecipeBookViewModel
 
-    private  var recipeList = emptyList<Recipe>()
+    private  var recipeList = RecipeDatabase.getInstance().recipeDao().getAll()
 
 
 
@@ -43,8 +43,6 @@ class RecipeBookListFragment : Fragment(), RecipeBookRecyclerViewAdapter.Callbac
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        recipeList = recipeBookViewModel.recipeBook.recipes
-        recipeBookViewModel.getRandomRecipes()
         recipeListAdapter = RecipeBookRecyclerViewAdapter(recipeList, this)
         val view = inflater.inflate(R.layout.fragment_my_book_recipe, container, false)
         view.recycler_view.adapter = recipeListAdapter
@@ -59,7 +57,7 @@ class RecipeBookListFragment : Fragment(), RecipeBookRecyclerViewAdapter.Callbac
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        recipeBookViewModel = ViewModelProvider(this, viewModelFactory { RecipeBookViewModel(requireContext())}).get()
+        //recipeBookViewModel = ViewModelProvider(this, viewModelFactory { RecipeBookViewModel(requireContext())}).get()
 
     }
 

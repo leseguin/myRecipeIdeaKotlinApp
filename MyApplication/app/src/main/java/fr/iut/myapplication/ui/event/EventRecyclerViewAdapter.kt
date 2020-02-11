@@ -6,10 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.iut.myapplication.R
 import fr.iut.myapplication.data.Event
-import fr.iut.myapplication.data.Recipe
-import fr.iut.myapplication.data.connexion.Connexion
 import kotlinx.android.synthetic.main.item_list_event.view.*
-import kotlinx.android.synthetic.main.item_list_recipe.view.*
 
 class EventRecyclerViewAdapter(private var eventList: List<Event>, private val listener: Callbacks) :
 RecyclerView.Adapter<EventRecyclerViewAdapter.EventViewHolder>() {

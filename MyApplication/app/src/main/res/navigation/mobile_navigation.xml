@@ -88,8 +88,8 @@
 
     <fragment
         android:id="@+id/nav_share"
-        android:name="fr.iut.myapplication.ui.share.ShareFragment"
+        android:name="fr.iut.myapplication.ui.disconnect.DisconnectFragment"
         android:label="@string/menu_share"
-        tools:layout="@layout/fragment_share" />
+        tools:layout="@layout/fragment_disconnect" />
 
 </navigation>

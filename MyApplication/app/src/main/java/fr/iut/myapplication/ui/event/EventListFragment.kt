@@ -5,7 +5,6 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import fr.iut.myapplication.R
-import fr.iut.myapplication.data.connexion.Connexion
 import fr.iut.myapplication.data.persistance.database.EventDatabase
 import kotlinx.android.synthetic.main.fragment_my_list_recipe.*
 import kotlinx.android.synthetic.main.fragment_my_list_recipe.view.*
