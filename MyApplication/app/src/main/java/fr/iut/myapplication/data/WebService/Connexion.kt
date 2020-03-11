@@ -22,8 +22,8 @@ class Connexion {
 
 
 
-    fun getFoodJoke(context : Context) : LiveData<String>{
-        var jokeLV = MutableLiveData<String>()
+    fun getFoodJoke(context : Context, jokeLV : MutableLiveData<String> ) {
+        //var jokeLV = MutableLiveData<String>()
         val queue = Volley.newRequestQueue(context)
         val url = "https://api.spoonacular.com/food/jokes/random?apiKey=f10e039e5c954ddba4e64bc156f997db"
         val stringRequest = StringRequest(
@@ -31,17 +31,12 @@ class Connexion {
             Response.Listener<String> { response ->
                 val gson = Gson()
                 val foodJoke: FoodJoke = gson.fromJson(response, FoodJoke::class.java)
-
                 jokeLV.value = foodJoke.text
-
-
                 Log.d( "API","> From JSON String:\n${foodJoke.text}")
             },
             Response.ErrorListener { Log.d("API", "ERROR API") })
 
         queue.add(stringRequest)
-
-        return jokeLV
     }
 
 

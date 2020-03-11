@@ -11,7 +11,7 @@
     <string name="menu_recipes">Recipes</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
+    <string name="menu_joke">Joke</string>
     <string name="menu_send">Send</string>
 
 
@@ -24,6 +24,9 @@
     <string name="create_recipe_error_dialog_title">Error</string>
     <string name="create_recipe_error_message">Can\'t create a recipe without name</string>
     <string name="name_menu_two">Communicate</string>
+
+    <string name="no_joke">Oops there\'s no jokes available</string>
+    <string name="search_joke">Want another joke pleaaase</string>
 
 
 </resources>

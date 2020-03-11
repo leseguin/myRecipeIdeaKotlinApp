@@ -66,30 +66,10 @@
         android:label="RecipeBookFragment"
         tools:layout="@layout/fragment_my_book_recipe"/>
 
-
-
-
-
-
-
-
-
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="fr.iut.myapplication.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-
-    <fragment
-        android:id="@+id/nav_tools"
-        android:name="fr.iut.myapplication.ui.tools.ToolsFragment"
-        android:label="@string/menu_tools"
-        tools:layout="@layout/fragment_tools" />
-
-    <fragment
-        android:id="@+id/nav_share"
-        android:name="fr.iut.myapplication.ui.disconnect.DisconnectFragment"
-        android:label="@string/menu_share"
-        tools:layout="@layout/fragment_disconnect" />
+        android:id="@+id/nav_joke"
+        android:name="fr.iut.myapplication.ui.joke.JokeFragment"
+        android:label="@string/menu_joke"
+        tools:layout="@layout/fragment_joke" />
 
 </navigation>

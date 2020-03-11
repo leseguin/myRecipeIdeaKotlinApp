@@ -13,26 +13,14 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="@string/menu_recipes" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_joke"
+            android:icon="@drawable/ic_menu_share"
+            android:title="@string/menu_joke" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_tools" />
+            android:id="@+id/nav_recipe_book"
+            android:icon="@drawable/ic_menu_send"
+            android:title="@string/menu_send" />
     </group>
 
-    <item android:title="@string/name_menu_two">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="@string/menu_share" />
-            <item
-                android:id="@+id/nav_recipe_book"
-                android:icon="@drawable/ic_menu_send"
-                android:title="@string/menu_send" />
-        </menu>
-    </item>
 
 </menu>

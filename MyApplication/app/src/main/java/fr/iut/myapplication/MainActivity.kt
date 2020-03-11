@@ -21,11 +21,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         RecipeDatabase.initialize(this)
-
-
-
-
         EventDatabase.initialize(this)
+
         setContentView(R.layout.activity_main)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
@@ -46,8 +43,8 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_event, R.id.nav_recipes, R.id.nav_slideshow,
-                R.id.nav_tools, R.id.nav_share, R.id.nav_recipe_book
+                R.id.nav_event, R.id.nav_recipes,
+                R.id.nav_joke, R.id.nav_recipe_book
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
