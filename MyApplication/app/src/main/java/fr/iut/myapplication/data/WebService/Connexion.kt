@@ -41,20 +41,6 @@ class Connexion {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private fun todoFoodJoke (url : String, joke : String) : StringRequest{
         val stringRequest =  StringRequest(
             com.android.volley.Request.Method.GET, url,
@@ -71,7 +57,7 @@ class Connexion {
 
 
 
-    fun getRandomRecipes(context : Context){
+    fun getRandomRecipes(context : Context, recipeLV : MutableLiveData<RecipeBook>){
         val queue = Volley.newRequestQueue(context)
         val url = "https://api.spoonacular.com/recipes/random?number=2&apiKey=f10e039e5c954ddba4e64bc156f997db"
         val stringRequest = StringRequest(
@@ -80,6 +66,7 @@ class Connexion {
                 val gson = Gson()
                 Log.d("API", response)
                 val recipes : RecipeBook = gson.fromJson(response, RecipeBook::class.java)
+                recipeLV.value = recipes
                 Log.d("API", recipes.recipes.toString())
                 recipes.recipes.forEach { Log.d("API", "Title : " + it.title) }
 

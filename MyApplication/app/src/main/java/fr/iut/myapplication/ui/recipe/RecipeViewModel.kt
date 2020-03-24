@@ -1,13 +1,22 @@
 package fr.iut.myapplication.ui.recipe
 
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import fr.iut.myapplication.data.RecipeBook
+import fr.iut.myapplication.data.WebService.Connexion
 
-class RecipeViewModel : ViewModel() {
+class RecipeViewModel(val context: Context) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
+    val co = Connexion()
+    var recipesLV = MutableLiveData<RecipeBook>()
+
+
+
+    fun newRecipes() {
+        co.getRandomRecipes(context, recipesLV)
     }
-    val text: LiveData<String> = _text
+
+
 }
