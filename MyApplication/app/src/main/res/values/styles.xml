@@ -2,7 +2,7 @@
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorRedDark</item>
+        <item name="colorPrimary">@color/colorLightBlue</item>
         <item name="colorPrimaryDark">@color/colorRed</item>
         <item name="colorAccent">@color/colorWhite</item>
     </style>
@@ -11,6 +11,16 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:background">@color/colorDividerGrey</item>
+    </style>
+
 
     <style name="buttonTheme" >
         <item name="android:background">@drawable/rounded_shape</item>
@@ -24,17 +34,39 @@
         <item name="android:textSize">20sp</item>
         <item name="android:layout_margin">20dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/colorRedDark</item>
+        <item name="android:textColor">@color/colorLightBlue</item>
         <item tools:targetApi="17" name="android:textAlignment">center</item>
     </style>
 
 
     <style name="textCreationViewTheme">
         <item name="android:textSize">17sp</item>
-        <item name="android:background">@color/colorRed</item>
-        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:background">@drawable/tittle_shape</item>
+        <item name="android:textColor">@color/colorBlack</item>
         <item name="android:padding">5dp</item>
+        <item name="android:layout_margin">5dp</item>
         <item tools:targetApi="17" name="android:textAlignment">center</item>
+    </style>
+
+
+    <style name="editTextTheme">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/text_view_background</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item tools:targetApi="17" name="android:textAlignment">center</item>
+        <item name="android:paddingBottom">50dp</item>
+        <item name="android:paddingTop">5dp</item>
+    </style>
+
+
+    <style name="buttonGuest">
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">@color/colorLightBlue</item>
+        <item name="android:background">@drawable/round_shape_event_button</item>
+        <item name="android:layout_weight">1</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />

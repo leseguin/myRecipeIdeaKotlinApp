@@ -79,6 +79,8 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.1'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
 
+    implementation "androidx.cardview:cardview:1.0.0"
+
     def lifecycle_version = "2.2.0"
 
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"

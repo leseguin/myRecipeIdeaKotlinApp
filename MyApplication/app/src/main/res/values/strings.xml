@@ -24,10 +24,31 @@
     <string name="name_menu_two">Communicate</string>
 
     <string name="no_joke">Oops there\'s no jokes available</string>
-    <string name="search_joke">Haha ... funny ! Another one please !</string>
-    <string name="tvCalendar">Day of the event :</string>
-    <string name="tvNameEvent">Name of the event :</string>
+    <string name="search_joke">Haha … funny ! Another one please !</string>
+
+
+
+    <string name="tvCalendar">Day of the event</string>
+    <string name="tvNameEvent">Name the event …</string>
     <string name="tvNumberGuest">Number of Guest</string>
+    <string name="error_create_event">Can\'t create an event without name</string>
+
+
+
+    <string name="summary_event">Add a summary…</string>
+
+
+
+    <string name="error_remove_guest">Can\'t remove guest</string>
+    <string name="error_add_guest">Can\'t add guest(s)</string>
+
+
+
+
+    <string name="minus10">-10</string>
+    <string name="minus1">-1</string>
+    <string name="plus1">+1</string>
+    <string name="plus10">+10</string>
 
 
 </resources>

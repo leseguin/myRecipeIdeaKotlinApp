@@ -14,19 +14,21 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="20dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
+        app:spanCount="1"
         tools:listitem="@layout/item_list_event">
 
     </androidx.recyclerview.widget.RecyclerView>
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_event"
+        android:id="@+id/fab_add_event"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@drawable/plus"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,15 +6,13 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import fr.iut.myapplication.MainActivity
 import fr.iut.myapplication.data.Event
-import fr.iut.myapplication.data.Recipe
-import fr.iut.myapplication.data.persistance.converter.DateToLongConverter
+import fr.iut.myapplication.data.persistance.converter.LongToDateConverter
 import fr.iut.myapplication.data.persistance.converter.ListConverter
 import fr.iut.myapplication.data.persistance.dao.EventDao
 import java.util.*
-import kotlin.collections.ArrayList
 
 @Database(entities = [Event::class], version = 1)
-@TypeConverters(DateToLongConverter::class, ListConverter::class)
+@TypeConverters(LongToDateConverter::class, ListConverter::class)
 abstract class EventDatabase : RoomDatabase() {
 
     abstract fun eventDao(): EventDao
@@ -58,7 +56,10 @@ abstract class EventDatabase : RoomDatabase() {
             val ev2 = Event("Paques", Date().time, 1)
             ev2.addRecipeIndex(1)
             ev2.addRecipeIndex(2)
-            val ev3 = Event("nouvel an", Date().time, 100)
+            val ev3 = Event("nouvel an", Date().time, 1000, "je suis une super description je suis une super description " +
+                    "je suis une super description je suis une super description  je suis une super description" +
+                    "je suis une super description je suis une super description je suis une super description " +
+                    "je suis une super description je suis une super description je suis une super description")
             ev3.addRecipeIndex(1)
             ev3.addRecipeIndex(2)
             getInstance().eventDao().apply {

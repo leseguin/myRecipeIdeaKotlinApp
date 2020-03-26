@@ -5,25 +5,31 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import fr.iut.myapplication.data.Event
+import fr.iut.myapplication.data.NEW_EVENT_ID
 import fr.iut.myapplication.data.persistance.database.EventDatabase
 import kotlinx.coroutines.launch
 import java.util.*
 
-class EventViewModel(val eventId : Long) : ViewModel() {
+class EventViewModel(eventId : Long) : ViewModel() {
 
-    val eventDB = EventDatabase.getInstance().eventDao()
-    var eventLV = MutableLiveData<Event>()
-
-    fun initEventVM(){
-        val event= eventDB.findById(eventId)
-        eventLV.value = event
-    }
+    private val eventDB = EventDatabase.getInstance().eventDao()
+    val eventLV = if (eventId == NEW_EVENT_ID) MutableLiveData(Event()) else MutableLiveData(
+        eventDB.findById(eventId)
+    )
 
 
-    fun saveEvent() {
-            viewModelScope.launch {
-                eventDB.update(eventLV.value!!)
+    fun saveEvent(): Boolean {
+        eventLV.value?.let {
+            if (it.name.isBlank())
+                return false
+            else {
+                viewModelScope.launch {
+                    if (it.id == NEW_EVENT_ID) eventDB.insert(it) else eventDB.update(it)
+                }
+                return true
             }
+        }
+        return false
     }
 
 
@@ -38,4 +44,31 @@ class EventViewModel(val eventId : Long) : ViewModel() {
         }
     }
 
+
+    val guestNumberLiveData = MediatorLiveData<Int>()
+    init {
+        guestNumberLiveData.addSource(eventLV) { guestNumberLiveData.postValue(it?.numberGuest) }
+        guestNumberLiveData.observeForever { newNbDate ->
+            eventLV.value?.let {
+                if (it.numberGuest != newNbDate)
+                    it.numberGuest = newNbDate
+            }
+        }
+    }
+
+    fun lessGuest(num : Int) : Boolean {
+        val cur = guestNumberLiveData.value
+        if (cur != null) {
+            if(cur.minus(num) >= 0 ) {
+                guestNumberLiveData.value = guestNumberLiveData.value?.minus(num)
+                return true
+            }
+            return false
+        }
+        return false
+    }
+
+    fun moreGuest(num : Int) {
+        guestNumberLiveData.value = guestNumberLiveData.value?.plus(num)
+    }
 }

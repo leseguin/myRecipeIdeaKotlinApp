@@ -3,7 +3,7 @@ package fr.iut.myapplication.data.persistance.converter
 import androidx.room.TypeConverter
 import java.util.Date
 
-class DateToLongConverter {
+class LongToDateConverter {
     @TypeConverter
     fun fromTimestamp(timestamp: Long?) = timestamp?.let { Date(it) }
 

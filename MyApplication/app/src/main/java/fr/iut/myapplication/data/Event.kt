@@ -11,6 +11,7 @@ const val NEW_EVENT_ID = 0L
 data class Event(var name: String = "",
                  var date: Long = Date().time,
                  var numberGuest: Int = 0,
+                 var summary: String = "",
                  var myIDRecipe: ArrayList<Long> = ArrayList(),
                  @PrimaryKey(autoGenerate = true) val id: Long = NEW_EVENT_ID) {
 

@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "3a9fa4d9f4e717190dd519972f8741a2",
+    "identityHash": "f5dedecbe10b77f3fd2f6b20fdcf5f5a",
     "entities": [
       {
         "tableName": "event",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `date` INTEGER NOT NULL, `numberGuest` INTEGER NOT NULL, `myIDRecipe` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`name` TEXT NOT NULL, `date` INTEGER NOT NULL, `numberGuest` INTEGER NOT NULL, `summary` TEXT NOT NULL, `myIDRecipe` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
         "fields": [
           {
             "fieldPath": "name",
@@ -24,6 +24,12 @@
             "fieldPath": "numberGuest",
             "columnName": "numberGuest",
             "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "summary",
+            "columnName": "summary",
+            "affinity": "TEXT",
             "notNull": true
           },
           {
@@ -52,7 +58,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '3a9fa4d9f4e717190dd519972f8741a2')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f5dedecbe10b77f3fd2f6b20fdcf5f5a')"
     ]
   }
 }

@@ -6,11 +6,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import fr.iut.myapplication.R
 import fr.iut.myapplication.data.Event
-import fr.iut.myapplication.data.persistance.converter.DateLongToStringConverter
-import fr.iut.myapplication.data.persistance.converter.DateToLongConverter
+import fr.iut.myapplication.data.persistance.converter.DateToStringConverter
+import fr.iut.myapplication.data.persistance.converter.LongToDateConverter
 import kotlinx.android.synthetic.main.item_list_event.view.*
-import java.text.DateFormat
-import java.util.*
 
 
 class EventRecyclerViewAdapter(private var eventList: List<Event>, private val listener: Callbacks) :
@@ -42,8 +40,8 @@ RecyclerView.Adapter<EventRecyclerViewAdapter.EventViewHolder>() {
         }
 
         fun bind(event: Event) {
-            val strConvert = DateLongToStringConverter()
-            val convert = DateToLongConverter()
+            val strConvert = DateToStringConverter()
+            val convert = LongToDateConverter()
             this.event = event
             itemView.eventName.text = event.name
             itemView.eventDate.text = strConvert.dateConverter(convert.fromTimestamp(event.date))
