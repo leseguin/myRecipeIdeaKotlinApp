@@ -7,9 +7,10 @@ class ListConverter {
 
     @TypeConverter
     fun toListOfLong(flatLongList: String): ArrayList<Long> {
-
-        val listString = flatLongList.split(",")
         val list = ArrayList<Long>()
+        if(flatLongList == "") return list
+        val listString = flatLongList.split(",")
+
         listString.forEach{
             list.add(it.toLong())
         }

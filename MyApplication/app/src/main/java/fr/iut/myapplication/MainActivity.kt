@@ -20,7 +20,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        RecipeDatabase.initialize(this)
+
+
+        //RecipeDatabase.initialize(this)
         EventDatabase.initialize(this)
 
         setContentView(R.layout.activity_main)

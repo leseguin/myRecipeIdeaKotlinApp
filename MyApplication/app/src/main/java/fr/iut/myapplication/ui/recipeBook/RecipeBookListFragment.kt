@@ -18,7 +18,6 @@ import kotlinx.android.synthetic.main.fragment_my_list_recipe.*
 import kotlinx.android.synthetic.main.fragment_my_list_recipe.view.*
 import kotlinx.android.synthetic.main.fragment_my_list_recipe.view.group_empty_view
 import java.util.Observer
-import androidx.lifecycle.ViewModelProviders
 import android.content.Context
 
 

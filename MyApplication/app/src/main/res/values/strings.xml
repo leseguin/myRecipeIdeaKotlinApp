@@ -24,7 +24,10 @@
     <string name="name_menu_two">Communicate</string>
 
     <string name="no_joke">Oops there\'s no jokes available</string>
-    <string name="search_joke">Want another joke pleaaase</string>
+    <string name="search_joke">Haha ... funny ! Another one please !</string>
+    <string name="tvCalendar">Day of the event :</string>
+    <string name="tvNameEvent">Name of the event :</string>
+    <string name="tvNumberGuest">Number of Guest</string>
 
 
 </resources>

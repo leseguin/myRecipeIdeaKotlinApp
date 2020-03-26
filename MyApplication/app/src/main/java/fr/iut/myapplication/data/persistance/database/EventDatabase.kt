@@ -52,11 +52,22 @@ abstract class EventDatabase : RoomDatabase() {
 
 
         private fun firstDB() {
-            val ev1 = Event("Anniversaire de Julie", Date(), 10)
+            val ev1 = Event("Anniversaire de Julie", Date().time, 10)
             ev1.addRecipeIndex(1)
             ev1.addRecipeIndex(2)
+            val ev2 = Event("Paques", Date().time, 1)
+            ev2.addRecipeIndex(1)
+            ev2.addRecipeIndex(2)
+            val ev3 = Event("nouvel an", Date().time, 100)
+            ev3.addRecipeIndex(1)
+            ev3.addRecipeIndex(2)
             getInstance().eventDao().apply {
                 insert(ev1)
+                insert(ev2)
+                insert(ev3)
+                insert(ev2)
+                insert(ev2)
+                insert(ev2)
             }
         }
     }

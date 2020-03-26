@@ -13,7 +13,6 @@ class JokeViewModel(val context: Context) : ViewModel() {
 
     fun newJoke() {
         co.getFoodJoke(context, jokeLV)
-
     }
 
 }

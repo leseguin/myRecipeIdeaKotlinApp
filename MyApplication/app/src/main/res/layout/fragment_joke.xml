@@ -39,7 +39,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_joke"
         android:textColor="@drawable/color_button_clicked"
-        android:background="@drawable/round_button"/>
+        android:background="@drawable/rounded_shape"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
