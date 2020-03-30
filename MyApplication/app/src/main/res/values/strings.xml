@@ -1,16 +1,14 @@
 <resources>
     <string name="app_name">My Application</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings" translatable="false">Settings</string>
 
-    <string name="menu_event">My event</string>
+    <string name="menu_event">My events</string>
     <string name="menu_recipes">New recipes</string>
     <string name="menu_joke">Joke</string>
-    <string name="menu_send">My recipes</string>
+    <string name="menu_recipe_book">My recipes</string>
+
+    <string name="wait_joke">"""Writting some good joke …"""</string>
 
 
     <string name="recipe_title">Name of recipe</string>
@@ -18,10 +16,9 @@
     <string name="recipe_summary">Summary of the recipe</string>
 
 
-    <string name="add_recipe_title">Add recipe</string>
+    <string name="add_recipe_title" translatable="false">Add recipe</string>
     <string name="create_recipe_error_dialog_title">Error</string>
     <string name="create_recipe_error_message">Can\'t create a recipe without name</string>
-    <string name="name_menu_two">Communicate</string>
 
     <string name="no_joke">Oops there\'s no jokes available</string>
     <string name="search_joke">Haha … funny ! Another one please !</string>
@@ -50,5 +47,12 @@
     <string name="plus1">+1</string>
     <string name="plus10">+10</string>
 
+
+    <string name="empty_list">Click on the button bellow to begin</string>
+
+    <string name="new_recipe">New Recipe</string>
+    <string name="summary_new_recipe">Find this recipe at :  </string>
+
+    <string name="recipe_add_to_book">Recipe added to your recipe book</string>
 
 </resources>

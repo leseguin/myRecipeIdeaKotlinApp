@@ -130,7 +130,9 @@
                     <CalendarView
                         android:id="@+id/calendarEvent"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"/>
                 </LinearLayout>
 
                 <View style="@style/Divider"/>
@@ -139,12 +141,23 @@
         </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/remove_event"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/add_event"
+            app:layout_constraintRight_toRightOf="parent"
+            android:backgroundTint="@color/colorLightBlue"
+            android:src="@drawable/trash"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_event"
-            android:layout_margin="16dp"
+            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
+            android:backgroundTint="@color/colorLightBlue"
             android:src="@drawable/check"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

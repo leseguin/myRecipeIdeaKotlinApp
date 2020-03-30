@@ -1,22 +1,29 @@
 package fr.iut.myapplication.ui.recipe
 
 import android.content.Context
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import fr.iut.myapplication.data.RecipeBook
-import fr.iut.myapplication.data.WebService.Connexion
+import androidx.lifecycle.viewModelScope
+import fr.iut.myapplication.R
+import fr.iut.myapplication.data.NEW_RECIPE_ID
+import fr.iut.myapplication.data.Recipe
+import fr.iut.myapplication.data.persistance.database.RecipeDatabase
+import kotlinx.coroutines.launch
+import java.io.Serializable
 
-class RecipeViewModel(val context: Context) : ViewModel() {
-
-    val co = Connexion()
-    var recipesLV = MutableLiveData<RecipeBook>()
+class RecipeViewModel : ViewModel(), Serializable{
 
 
 
-    fun newRecipes() {
-        co.getRandomRecipes(context, recipesLV)
+    val recipeLV = MutableLiveData(Recipe())
+
+    fun addRecipe(context: Context){
+        val recipeDB = RecipeDatabase.getInstance().recipeDao()
+        val recipeAdd = recipeLV.value ?: Recipe( context.getString(R.string.new_recipe))
+        recipeAdd.summary = context.getString(R.string.summary_new_recipe) + " " + recipeAdd.spoonacularSourceUrl
+
+        viewModelScope.launch {
+            recipeDB.insert(recipeAdd)
+        }
     }
-
-
 }

@@ -1,15 +1,19 @@
 package fr.iut.myapplication.data.persistance.database
 
+import android.app.Application
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import fr.iut.myapplication.EventApplication
 import fr.iut.myapplication.MainActivity
 import fr.iut.myapplication.data.Event
 import fr.iut.myapplication.data.persistance.converter.LongToDateConverter
 import fr.iut.myapplication.data.persistance.converter.ListConverter
 import fr.iut.myapplication.data.persistance.dao.EventDao
 import java.util.*
+
+private const val DB_NAME_EVENT= "event_db.db"
 
 @Database(entities = [Event::class], version = 1)
 @TypeConverters(LongToDateConverter::class, ListConverter::class)
@@ -18,7 +22,7 @@ abstract class EventDatabase : RoomDatabase() {
     abstract fun eventDao(): EventDao
 
     companion object {
-        private var application: MainActivity? = null
+        private var application: Application? = null
         @Volatile
         private var instance: EventDatabase? = null
 
@@ -27,12 +31,12 @@ abstract class EventDatabase : RoomDatabase() {
                 if (instance == null)
                     synchronized(this) {
                         if (instance == null)
-                            instance = Room.inMemoryDatabaseBuilder(
+                            instance = Room.databaseBuilder(
                                 application!!.applicationContext,
-                                EventDatabase::class.java)
+                                EventDatabase::class.java,
+                                DB_NAME_EVENT)
                                 .allowMainThreadQueries()
                                 .build()
-                        firstDB()
                     }
                 return instance!!
             } else
@@ -41,7 +45,7 @@ abstract class EventDatabase : RoomDatabase() {
 
 
         @Synchronized
-        fun initialize(app: MainActivity) {
+        fun initialize(app: EventApplication) {
             if (application == null)
                 application = app
             else
@@ -64,11 +68,11 @@ abstract class EventDatabase : RoomDatabase() {
             ev3.addRecipeIndex(2)
             getInstance().eventDao().apply {
                 insert(ev1)
-                insert(ev2)
+               /* insert(ev2)
                 insert(ev3)
                 insert(ev2)
                 insert(ev2)
-                insert(ev2)
+                insert(ev2)*/
             }
         }
     }

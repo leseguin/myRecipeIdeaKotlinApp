@@ -9,4 +9,5 @@ const val NEW_RECIPE_ID = 0L
 data class Recipe(var title: String = "",
                   var servings: Int =  0,
                   var summary: String = "",
+                  var spoonacularSourceUrl: String = "",
                   @PrimaryKey(autoGenerate = true) val id: Long = NEW_RECIPE_ID)

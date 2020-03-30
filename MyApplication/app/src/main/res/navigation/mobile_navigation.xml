@@ -19,12 +19,15 @@
     <fragment
         android:id="@+id/eventFragment"
         android:name="fr.iut.myapplication.ui.event.EventFragment"
-        android:label="eventFragment"
+        android:label="@string/menu_event"
         tools:layout="@layout/fragment_event">
         <argument
             android:name="eventid"
             app:argType="long"
             android:defaultValue="0L" />
+        <action
+            android:id="@+id/action_eventFragment_to_nav_event"
+            app:destination="@id/nav_event" />
     </fragment>
 
     <fragment
@@ -40,19 +43,17 @@
     <fragment
         android:id="@+id/recipeFragment"
         android:name="fr.iut.myapplication.ui.recipe.RecipeFragment"
-        android:label="RecipeFragment"
+        android:label="@string/menu_recipes"
         tools:layout="@layout/fragment_recipe">
-        <argument
-            android:name="recipeid"
-            app:argType="long"
-            android:defaultValue="0L" />
+        <argument android:name="RecipeVM"
+            app:argType="fr.iut.myapplication.ui.recipe.RecipeViewModel"/>
     </fragment>
 
 
     <fragment
         android:id="@+id/nav_recipe_book"
         android:name="fr.iut.myapplication.ui.recipeBook.RecipeBookListFragment"
-        android:label="RecipeBookFragment"
+        android:label="@string/menu_recipe_book"
         tools:layout="@layout/fragment_my_list_recipe">
         <action
             android:id="@+id/action_nav_recipe_book_to_recipeBookFragment"
@@ -63,8 +64,13 @@
     <fragment
         android:id="@+id/recipeBookFragment"
         android:name="fr.iut.myapplication.ui.recipeBook.RecipeBookFragment"
-        android:label="RecipeBookFragment"
-        tools:layout="@layout/fragment_my_book_recipe"/>
+        android:label="@string/menu_recipe_book"
+        tools:layout="@layout/fragment_book_recipe">
+        <action
+            android:id="@+id/action_recipeBookFragment_to_nav_recipe_book"
+            app:destination="@id/nav_recipe_book" />
+    </fragment>
+
 
     <fragment
         android:id="@+id/nav_joke"

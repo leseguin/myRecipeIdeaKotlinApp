@@ -5,21 +5,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
+import androidx.navigation.fragment.findNavController
 import fr.iut.myapplication.R
 import fr.iut.myapplication.data.NEW_EVENT_ID
 import fr.iut.myapplication.databinding.FragmentEventBinding
 import kotlinx.android.synthetic.main.fragment_event.*
 import com.google.android.material.snackbar.Snackbar
 import java.util.*
-import android.annotation.SuppressLint
-import android.util.Log
 import fr.iut.myapplication.data.persistance.converter.LongToStringConverter
 import java.text.SimpleDateFormat
+
+
 
 
 class EventFragment : Fragment() {
@@ -44,7 +46,6 @@ class EventFragment : Fragment() {
 
         setHasOptionsMenu(true)
         eventVM = ViewModelProvider(this, viewModelFactory { EventViewModel(eventId) }).get()
-
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -72,19 +73,23 @@ class EventFragment : Fragment() {
                     R.string.error_create_event,
                     Snackbar.LENGTH_SHORT
                 ).show()
-            }
+            } else findNavController().navigate(R.id.action_eventFragment_to_nav_event)
+        }
+
+        remove_event.setOnClickListener {
+            deleteEvent()
         }
 
 
         initCalendarView()
-        initFabButtons()
+        initGuestButtons()
 
 
     }
 
     fun initCalendarView(){
         val convert = LongToStringConverter
-
+        //Set the Calendar's Date on the date of the event
         val currDate = convert.convert(eventVM.eventLV.value!!.date)
         calendarEvent.setDate(
             SimpleDateFormat("dd/MM/yyyy").parse(currDate).time,
@@ -96,11 +101,16 @@ class EventFragment : Fragment() {
             val cal = Calendar.getInstance()
             cal.set(year, month, dayOfMonth)
             eventVM.dateLiveData.value = cal.timeInMillis
+
+
         }
+        val minDate = convert.convert(Date().time)
+
+        //val minDate = "30/03/2020"
+        calendarEvent.minDate = SimpleDateFormat("dd/MM/yyyy").parse(minDate).time
     }
 
-
-    fun initFabButtons(){
+    fun initGuestButtons(){
         fab_revome_guest.setOnClickListener {
             if(!eventVM.lessGuest(1)) {
                 showSnackBarErrorRMGuest()
@@ -130,14 +140,18 @@ class EventFragment : Fragment() {
         ).show()
     }
 
-
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (resultCode != AppCompatActivity.RESULT_OK)
-            return
-
-
+    private fun deleteEvent() {
+        if (eventId != NEW_EVENT_ID) {
+            AlertDialog.Builder(activity!!)
+                .setTitle("Delete event")
+                .setMessage("Do you really want to delete ${eventVM.eventLV.value!!.name} ? ")
+                .setPositiveButton(android.R.string.yes) { dialog, which ->
+                    eventVM.deleteEvent()
+                    findNavController().navigate(R.id.action_eventFragment_to_nav_event)
+                }
+                .setNegativeButton(android.R.string.no, null)
+                .show()
+        }
     }
+
 }

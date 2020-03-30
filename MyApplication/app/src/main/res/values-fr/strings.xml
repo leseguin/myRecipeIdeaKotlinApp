@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Myevent</string>
+    <string name="nav_header_title">Android Studio</string>
+
+    <string name="menu_event">Mes evenements</string>
+    <string name="menu_recipes">Nouvelles recettes</string>
+    <string name="menu_joke">Blague</string>
+    <string name="menu_recipe_book">Mes recettes</string>
+
+    <string name="wait_joke">"""Entrain d'écrire une très bonne blague …"""</string>
+
+
+    <string name="recipe_title">Nom de la recette</string>
+    <string name="recipe_number_guest">Nombre d\'invité</string>
+    <string name="recipe_summary">Description de la recette</string>
+
+
+    <string name="add_recipe_title" translatable="false">Ajouter une recette</string>
+    <string name="create_recipe_error_dialog_title">Erreur</string>
+    <string name="create_recipe_error_message">Veuillez saisir un nom</string>
+
+    <string name="no_joke">Désolé nos ecrivains sont en greve</string>
+    <string name="search_joke">Vraiment très drole … Encore une.</string>
+
+
+
+    <string name="tvCalendar">Jour de l\'evenemewnt</string>
+    <string name="tvNameEvent">Nom de l\'evenemewnt</string>
+    <string name="tvNumberGuest">Nombre d\'invité</string>
+    <string name="error_create_event">Impossible de creer un evenement sans nom</string>
+
+
+
+    <string name="summary_event">Ajoutez une description…</string>
+
+
+
+    <string name="error_remove_guest">Impossible de baisser le nombre d\'invité</string>
+    <string name="error_add_guest">Impossible d\'ajouter un invité</string>
+
+
+
+
+    <string name="minus10">-10</string>
+    <string name="minus1">-1</string>
+    <string name="plus1">+1</string>
+    <string name="plus10">+10</string>
+
+
+    <string name="empty_list">Cliquer sur le bouton ci-dessous pour continuer</string>
+
+    <string name="new_recipe">Nouvelle recette</string>
+    <string name="summary_new_recipe">Trouver cette recette à l\'adresse suivante :  </string>
+
+    <string name="recipe_add_to_book">Recette ajouté à votre livre de recette</string>
+</resources>

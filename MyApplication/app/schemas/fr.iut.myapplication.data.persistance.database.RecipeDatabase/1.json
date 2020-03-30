@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "7ca2353564d7100d746b428a6fc9b4c5",
+    "identityHash": "f054a0bc5732306353ba78db069e8444",
     "entities": [
       {
         "tableName": "recipe",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`title` TEXT NOT NULL, `servings` INTEGER NOT NULL, `summary` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`title` TEXT NOT NULL, `servings` INTEGER NOT NULL, `summary` TEXT NOT NULL, `spoonacularSourceUrl` TEXT NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
         "fields": [
           {
             "fieldPath": "title",
@@ -23,6 +23,12 @@
           {
             "fieldPath": "summary",
             "columnName": "summary",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "spoonacularSourceUrl",
+            "columnName": "spoonacularSourceUrl",
             "affinity": "TEXT",
             "notNull": true
           },
@@ -46,7 +52,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7ca2353564d7100d746b428a6fc9b4c5')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f054a0bc5732306353ba78db069e8444')"
     ]
   }
 }

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
 
     <data>
-
-        <import type="fr.iut.myapplication.data.persistance.converter.DbindConverter"/>
         <variable
-            name="recipeVM"
-            type="fr.iut.myapplication.ui.recipe.RecipeViewModel" />
+            name="recipeBookVM"
+            type="fr.iut.myapplication.ui.recipeBook.RecipeBookViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraint_l_recipe"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/constraint_l_recipe_book"
         android:layout_height="match_parent"
         android:layout_width="match_parent">
 
@@ -28,24 +27,35 @@
                 android:id="@+id/recipe_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@={recipeVM.recipeLV.title}"
+                android:text="@={recipeBookVM.recipeLV.title}"
                 android:textSize="25sp"
                 android:paddingBottom="5dp"
                 style="@style/editTextTheme"/>
 
             <View style="@style/Divider"/>
 
-            <WebView
+            <EditText
+                android:id="@+id/recipe_summary"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:loadUrl="@{recipeVM.recipeLV.spoonacularSourceUrl}" />
+                android:layout_height="wrap_content"
+                android:text="@={recipeBookVM.recipeLV.summary}"
+                android:textSize="18sp"
+                style="@style/editTextTheme"/>
 
             <View style="@style/Divider"/>
 
-
-
         </LinearLayout>
 
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/remove_recipe"
+            android:layout_margin="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/add_recipe"
+            app:layout_constraintRight_toRightOf="parent"
+            android:backgroundTint="@color/colorLightBlue"
+            android:src="@drawable/trash"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/add_recipe"

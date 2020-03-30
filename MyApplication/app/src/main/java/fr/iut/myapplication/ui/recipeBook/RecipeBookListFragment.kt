@@ -3,66 +3,53 @@ import android.os.Bundle
 import android.view.*
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.navigation.fragment.findNavController
 import fr.iut.myapplication.R
-import fr.iut.myapplication.data.Recipe
-
-import androidx.lifecycle.get
 
 
 import fr.iut.myapplication.data.persistance.database.RecipeDatabase
-import fr.iut.myapplication.ui.utils.viewModelFactory
-import kotlinx.android.synthetic.main.fragment_my_list_recipe.*
 import kotlinx.android.synthetic.main.fragment_my_list_recipe.view.*
-import kotlinx.android.synthetic.main.fragment_my_list_recipe.view.group_empty_view
-import java.util.Observer
 import android.content.Context
+import android.util.Log
+import androidx.lifecycle.Observer
+import fr.iut.myapplication.data.NEW_RECIPE_ID
+import fr.iut.myapplication.databinding.FragmentBookListRecipeBinding
+import fr.iut.myapplication.databinding.FragmentBookRecipeBinding
+import kotlinx.android.synthetic.main.fragment_book_list_recipe.*
 
 
 class RecipeBookListFragment : Fragment(), RecipeBookRecyclerViewAdapter.Callbacks {
 
+    private var recipeBookVM = RecipeBookListViewModel()
 
-    //DEMANDER UN LISTE DE RECETTE AU HASARD
-
-
-    private lateinit var recipeBookViewModel : RecipeBookViewModel
-
-    private  var recipeList = RecipeDatabase.getInstance().recipeDao().getAll()
-
-
-
-
-//    private var recipeList = RecipeDatabase.getInstance().recipeDao().getAll()
-    private lateinit var recipeListAdapter :RecipeBookRecyclerViewAdapter
-
+    private val recipeListAdapter =
+        RecipeBookRecyclerViewAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        recipeListAdapter = RecipeBookRecyclerViewAdapter(recipeList, this)
-        val view = inflater.inflate(R.layout.fragment_my_book_recipe, container, false)
-        view.recycler_view.adapter = recipeListAdapter
-        view.group_empty_view.visibility = if (recipeList.isEmpty()) View.VISIBLE else View.GONE
-        return view
+        val binding = FragmentBookListRecipeBinding.inflate(inflater)
+        binding.recipeBookListVM = recipeBookVM
+        binding.lifecycleOwner = this
+        return binding.root
     }
 
-    override fun onResume() {
-        super.onResume()
-        updateList()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        recycler_view.adapter = recipeListAdapter
+
+        fab_add_recipe.setOnClickListener {
+            val bundle = bundleOf("extra_recipeid" to NEW_RECIPE_ID)
+            findNavController().navigate(R.id.action_nav_recipe_book_to_recipeBookFragment, bundle)
+        }
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        //recipeBookViewModel = ViewModelProvider(this, viewModelFactory { RecipeBookViewModel(requireContext())}).get()
-
-    }
-
-    private fun updateList() {
-        recipeListAdapter.updateList(RecipeDatabase.getInstance().recipeDao().getAll())
-        group_empty_view.visibility = if (recipeList.isEmpty()) View.VISIBLE else View.GONE
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        recipeBookVM.recipeBookLV.observe(this, Observer {
+            recipeListAdapter.updateList(it)
+        })
     }
 
     override fun onRecipeSelected(recipeId: Long) {

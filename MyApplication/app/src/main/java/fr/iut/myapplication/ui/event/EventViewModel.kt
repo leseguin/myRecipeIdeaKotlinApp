@@ -71,4 +71,10 @@ class EventViewModel(eventId : Long) : ViewModel() {
     fun moreGuest(num : Int) {
         guestNumberLiveData.value = guestNumberLiveData.value?.plus(num)
     }
+
+    fun deleteEvent() {
+        viewModelScope.launch {
+            eventLV.value?.let { if (it.id != NEW_EVENT_ID) eventDB.delete(it)}
+        }
+    }
 }

@@ -11,9 +11,11 @@ import fr.iut.myapplication.data.persistance.converter.LongToDateConverter
 import kotlinx.android.synthetic.main.item_list_event.view.*
 
 
-class EventRecyclerViewAdapter(private var eventList: List<Event>, private val listener: Callbacks) :
+class EventRecyclerViewAdapter( private val listener: Callbacks) :
 RecyclerView.Adapter<EventRecyclerViewAdapter.EventViewHolder>() {
 
+
+    private var eventList = emptyList<Event>()
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) =
         holder.bind(eventList[position])

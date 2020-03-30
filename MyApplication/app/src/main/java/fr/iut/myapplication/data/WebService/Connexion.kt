@@ -54,18 +54,17 @@ class Connexion {
         return stringRequest
     }
 
-
-
-
-    fun getRandomRecipes(context : Context, recipeLV : MutableLiveData<RecipeBook>){
+    fun getRandomRecipes(context : Context) : MutableLiveData<RecipeBook>{
         val queue = Volley.newRequestQueue(context)
-        val url = "https://api.spoonacular.com/recipes/random?number=2&apiKey=f10e039e5c954ddba4e64bc156f997db"
+        val recipeLV : MutableLiveData<RecipeBook> = MutableLiveData()
+        val url =
+            "https://api.spoonacular.com/recipes/random?number=5&apiKey=f10e039e5c954ddba4e64bc156f997db"
         val stringRequest = StringRequest(
             com.android.volley.Request.Method.GET, url,
             Response.Listener<String> { response ->
                 val gson = Gson()
                 Log.d("API", response)
-                val recipes : RecipeBook = gson.fromJson(response, RecipeBook::class.java)
+                val recipes: RecipeBook = gson.fromJson(response, RecipeBook::class.java)
                 recipeLV.value = recipes
                 Log.d("API", recipes.recipes.toString())
                 recipes.recipes.forEach { Log.d("API", "Title : " + it.title) }
@@ -75,5 +74,6 @@ class Connexion {
 
 // Add the request to the RequestQueue
         queue.add(stringRequest)
+        return recipeLV
     }
 }

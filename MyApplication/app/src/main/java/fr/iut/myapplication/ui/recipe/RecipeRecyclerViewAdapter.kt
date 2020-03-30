@@ -8,9 +8,10 @@ import fr.iut.myapplication.R
 import fr.iut.myapplication.data.Recipe
 import kotlinx.android.synthetic.main.item_list_recipe.view.*
 
-class RecipeRecyclerViewAdapter(private var recipeList: List<Recipe>, private val listener: Callbacks) :
+class RecipeRecyclerViewAdapter(private val listener: Callbacks) :
 RecyclerView.Adapter<RecipeRecyclerViewAdapter.RecipeViewHolder>() {
 
+    private var recipeList = emptyList<Recipe>()
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) =
         holder.bind(recipeList[position])
@@ -33,12 +34,12 @@ RecyclerView.Adapter<RecipeRecyclerViewAdapter.RecipeViewHolder>() {
             private set
 
         init {
-            itemView.setOnClickListener { recipe?.let { listener.onRecipeSelected(it.id) } }
+            itemView.setOnClickListener { recipe?.let { listener.onRecipeSelected(it) } }
         }
 
         fun bind(recipe: Recipe) {
             this.recipe = recipe
-            itemView.recipeTitle.text = recipe.title
+            itemView.recipe_title.text = recipe.title
         }
 
     }
@@ -49,6 +50,6 @@ RecyclerView.Adapter<RecipeRecyclerViewAdapter.RecipeViewHolder>() {
     }
 
     interface Callbacks {
-        fun onRecipeSelected(recipeId: Long)
+        fun onRecipeSelected(recipe: Recipe)
     }
 }
