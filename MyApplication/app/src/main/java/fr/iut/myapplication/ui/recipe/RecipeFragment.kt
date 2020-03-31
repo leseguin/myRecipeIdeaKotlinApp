@@ -15,14 +15,11 @@ class RecipeFragment : Fragment() {
 
     private lateinit var recipeVM: RecipeViewModel
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         recipeVM = RecipeFragmentArgs.fromBundle(arguments).recipeVM
         setHasOptionsMenu(true)
     }
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -31,7 +28,6 @@ class RecipeFragment : Fragment() {
         binding.recipeVM = recipeVM
         binding.lifecycleOwner = this
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,11 +47,5 @@ class RecipeFragment : Fragment() {
 
         if (resultCode != AppCompatActivity.RESULT_OK)
             return
-
-
     }
-
-
-
-
 }

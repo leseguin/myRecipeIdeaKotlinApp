@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.item_list_event.view.*
 class EventRecyclerViewAdapter( private val listener: Callbacks) :
 RecyclerView.Adapter<EventRecyclerViewAdapter.EventViewHolder>() {
 
-
     private var eventList = emptyList<Event>()
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) =
@@ -49,10 +48,7 @@ RecyclerView.Adapter<EventRecyclerViewAdapter.EventViewHolder>() {
             itemView.eventDate.text = strConvert.dateConverter(convert.fromTimestamp(event.date))
             itemView.numberGuest.text = event.numberGuest.toString()
         }
-
     }
-
-
 
     fun updateList(eventList: List<Event>) {
         this.eventList = eventList

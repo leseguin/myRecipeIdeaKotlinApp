@@ -17,7 +17,6 @@ class EventViewModel(eventId : Long) : ViewModel() {
         eventDB.findById(eventId)
     )
 
-
     fun saveEvent(): Boolean {
         eventLV.value?.let {
             if (it.name.isBlank())
@@ -32,7 +31,6 @@ class EventViewModel(eventId : Long) : ViewModel() {
         return false
     }
 
-
     val dateLiveData = MediatorLiveData<Long>()
     init {
         dateLiveData.addSource(eventLV) { dateLiveData.postValue(it?.date) }
@@ -43,7 +41,6 @@ class EventViewModel(eventId : Long) : ViewModel() {
             }
         }
     }
-
 
     val guestNumberLiveData = MediatorLiveData<Int>()
     init {

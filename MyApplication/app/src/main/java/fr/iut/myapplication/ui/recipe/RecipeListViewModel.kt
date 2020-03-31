@@ -13,8 +13,6 @@ class RecipeListViewModel(val context: Context ) : ViewModel(){
     val co = Connexion()
     var recipes = emptyList<Recipe>()
 
-    val recipesLV = MutableLiveData(recipes)
-
     fun newRecipes() : MutableLiveData<RecipeBook> {
         return co.getRandomRecipes(context)
     }

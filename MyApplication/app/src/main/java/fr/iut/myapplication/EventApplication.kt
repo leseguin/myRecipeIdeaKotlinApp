@@ -9,6 +9,5 @@ class EventApplication : Application() {
         super.onCreate()
         RecipeDatabase.initialize(this)
         EventDatabase.initialize(this)
-
     }
 }

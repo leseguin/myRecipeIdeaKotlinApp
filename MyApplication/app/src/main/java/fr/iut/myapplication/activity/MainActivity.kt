@@ -1,4 +1,4 @@
-package fr.iut.myapplication
+package fr.iut.myapplication.activity
 
 import android.os.Bundle
 import androidx.navigation.findNavController
@@ -10,6 +10,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import fr.iut.myapplication.R
 
 
 class MainActivity : AppCompatActivity() {

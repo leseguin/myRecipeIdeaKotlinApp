@@ -16,7 +16,6 @@ class EventListFragment : Fragment(), EventRecyclerViewAdapter.Callbacks {
 
 
     private val eventListVM = EventListViewModel()
-    //private var eventList = EventDatabase.getInstance().eventDao().getAll()
     private val eventListAdapter =
         EventRecyclerViewAdapter(this)
 
@@ -24,11 +23,6 @@ class EventListFragment : Fragment(), EventRecyclerViewAdapter.Callbacks {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        /*val view = inflater.inflate(R.layout.fragment_my_list_event, container, false)
-        view.recycler_view.adapter = eventListAdapter
-        view.group_empty_view.visibility = if (eventList.isEmpty()) View.VISIBLE else View.GONE
-        return view*/
-
         val binding = FragmentMyListEventBinding.inflate(inflater)
         binding.eventListVM = eventListVM
         binding.lifecycleOwner = this
@@ -54,14 +48,10 @@ class EventListFragment : Fragment(), EventRecyclerViewAdapter.Callbacks {
     override fun onEventSelected(eventId: Long) {
         val bundle = bundleOf("extra_eventid" to eventId)
         findNavController().navigate(R.id.action_nav_event_to_eventFragment, bundle)
-
     }
 
     private fun addEvent(){
         val bundle = bundleOf("extra_eventid" to NEW_EVENT_ID)
         findNavController().navigate(R.id.action_nav_event_to_eventFragment, bundle)
     }
-
-
-
 }

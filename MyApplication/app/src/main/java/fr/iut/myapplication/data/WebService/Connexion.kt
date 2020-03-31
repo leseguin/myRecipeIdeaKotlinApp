@@ -39,21 +39,6 @@ class Connexion {
         queue.add(stringRequest)
     }
 
-
-
-    private fun todoFoodJoke (url : String, joke : String) : StringRequest{
-        val stringRequest =  StringRequest(
-            com.android.volley.Request.Method.GET, url,
-            Response.Listener<String> { response ->
-                val gson = Gson()
-                val foodJoke: FoodJoke = gson.fromJson(response, FoodJoke::class.java)
-                Log.d( "API","> From JSON String:\n${foodJoke.text}")
-            },
-            Response.ErrorListener { Log.d("API", "ERROR API")  }) // Ajouter un traitement : Message d'erreur
-
-        return stringRequest
-    }
-
     fun getRandomRecipes(context : Context) : MutableLiveData<RecipeBook>{
         val queue = Volley.newRequestQueue(context)
         val recipeLV : MutableLiveData<RecipeBook> = MutableLiveData()
@@ -72,7 +57,6 @@ class Connexion {
             },
             Response.ErrorListener { Log.d("API", "ERROR API") })
 
-// Add the request to the RequestQueue
         queue.add(stringRequest)
         return recipeLV
     }

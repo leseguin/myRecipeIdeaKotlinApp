@@ -41,7 +41,6 @@ RecyclerView.Adapter<RecipeBookRecyclerViewAdapter.RecipeViewHolder>() {
             this.recipe = recipe
             itemView.recipe_title.text = recipe.title
         }
-
     }
 
     fun updateList(recipeList: List<Recipe>) {

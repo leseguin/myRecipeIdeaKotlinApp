@@ -67,13 +67,7 @@ class EventFragment : Fragment() {
 
         //Add or update an event
         add_event.setOnClickListener {
-            if(!eventVM.saveEvent()){
-                Snackbar.make(
-                    constraint_l_event,
-                    R.string.error_create_event,
-                    Snackbar.LENGTH_SHORT
-                ).show()
-            } else findNavController().navigate(R.id.action_eventFragment_to_nav_event)
+            addEvent()
         }
 
         remove_event.setOnClickListener {
@@ -85,6 +79,16 @@ class EventFragment : Fragment() {
         initGuestButtons()
 
 
+    }
+
+    fun addEvent(){
+        if(!eventVM.saveEvent()){
+            Snackbar.make(
+                constraint_l_event,
+                R.string.error_create_event,
+                Snackbar.LENGTH_SHORT
+            ).show()
+        } else findNavController().navigate(R.id.action_eventFragment_to_nav_event)
     }
 
     fun initCalendarView(){
@@ -101,8 +105,6 @@ class EventFragment : Fragment() {
             val cal = Calendar.getInstance()
             cal.set(year, month, dayOfMonth)
             eventVM.dateLiveData.value = cal.timeInMillis
-
-
         }
         val minDate = convert.convert(Date().time)
 

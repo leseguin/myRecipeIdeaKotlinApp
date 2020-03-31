@@ -6,6 +6,6 @@ import fr.iut.myapplication.data.persistance.database.RecipeDatabase
 
 class RecipeBookListViewModel : ViewModel() {
     private val recipeRepo = RecipeDatabase.getInstance().recipeDao()
-    val recipeBookDB = recipeRepo.getAll()
+    private val recipeBookDB = recipeRepo.getAll()
     val recipeBookLV = MutableLiveData(recipeBookDB)
 }

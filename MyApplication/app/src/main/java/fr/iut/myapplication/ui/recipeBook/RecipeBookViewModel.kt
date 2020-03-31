@@ -15,7 +15,6 @@ class RecipeBookViewModel(recipeId : Long) : ViewModel() {
         recipeDB.findById(recipeId)
     )
 
-
     fun saveRecipe(): Boolean {
         recipeLV.value?.let {
             if (it.title.isBlank())

@@ -10,8 +10,6 @@ class JokeViewModel(val context: Context) : ViewModel() {
     val co = Connexion()
     var jokeLV = MutableLiveData<String>()
 
-
-
     fun newJoke() {
         jokeLV.value = context.getString(R.string.wait_joke)
         co.getFoodJoke(context, jokeLV)

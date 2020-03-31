@@ -6,7 +6,6 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import fr.iut.myapplication.EventApplication
-import fr.iut.myapplication.MainActivity
 import fr.iut.myapplication.data.Event
 import fr.iut.myapplication.data.persistance.converter.LongToDateConverter
 import fr.iut.myapplication.data.persistance.converter.ListConverter

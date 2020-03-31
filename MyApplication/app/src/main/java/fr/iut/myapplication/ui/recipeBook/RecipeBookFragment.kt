@@ -24,10 +24,6 @@ class RecipeBookFragment : Fragment()  {
 
     companion object {
         private const val EXTRA_RECIPE_ID = "extra_recipeid"
-
-        fun newInstance(recipeId: Long) = RecipeBookFragment().apply {
-            arguments = bundleOf(EXTRA_RECIPE_ID to recipeId)
-        }
     }
 
     private var recipeId: Long = NEW_RECIPE_ID

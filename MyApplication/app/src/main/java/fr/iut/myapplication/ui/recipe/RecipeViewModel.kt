@@ -11,9 +11,8 @@ import fr.iut.myapplication.data.persistance.database.RecipeDatabase
 import kotlinx.coroutines.launch
 import java.io.Serializable
 
+//Serializable for navigation
 class RecipeViewModel : ViewModel(), Serializable{
-
-
 
     val recipeLV = MutableLiveData(Recipe())
 
