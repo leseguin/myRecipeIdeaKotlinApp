@@ -20,9 +20,6 @@ import kotlinx.android.synthetic.main.fragment_my_list_recipe.view.*
 
 class RecipeListFragment : Fragment(), RecipeRecyclerViewAdapter.Callbacks {
 
-
-    //private var recipeList = RecipeDatabase.getInstance().recipeDao().getAll()
-
     private lateinit var recipeListVM : RecipeListViewModel
 
     private lateinit var recipeVM : RecipeViewModel
@@ -36,7 +33,6 @@ class RecipeListFragment : Fragment(), RecipeRecyclerViewAdapter.Callbacks {
         recipeListVM = ViewModelProvider(this, viewModelFactory { RecipeListViewModel(requireContext())}).get()
         recipeVM = ViewModelProvider(this, viewModelFactory { RecipeViewModel()}).get()
         recipeListAdapter = RecipeRecyclerViewAdapter(this)
-        //getNewRecipes()
         val view = inflater.inflate(R.layout.fragment_my_list_recipe, container, false)
         view.recycler_view.adapter = recipeListAdapter
         return view

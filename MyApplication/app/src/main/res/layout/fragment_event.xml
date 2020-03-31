@@ -68,7 +68,6 @@
 
                         <Button
                             android:id="@+id/fab_revome_guest_more"
-                            android:src="@drawable/minus10"
                             style="@style/buttonGuest"
                             android:text="@string/minus10" />
 

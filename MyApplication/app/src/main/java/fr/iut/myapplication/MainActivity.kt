@@ -10,11 +10,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import android.view.Menu
-import fr.iut.myapplication.data.persistance.database.EventDatabase
-import fr.iut.myapplication.data.persistance.database.RecipeDatabase
+
 
 class MainActivity : AppCompatActivity() {
+
+    private val CAMERA_PERMISSION_CODE = 100
+    private val STORAGE_PERMISSION_CODE = 101
 
     private lateinit var appBarConfiguration: AppBarConfiguration
 
@@ -40,7 +41,11 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
     }
+
+
 
 
     override fun onSupportNavigateUp(): Boolean {

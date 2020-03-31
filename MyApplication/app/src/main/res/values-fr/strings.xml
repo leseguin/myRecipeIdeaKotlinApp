@@ -51,7 +51,7 @@
     <string name="empty_list">Cliquer sur le bouton ci-dessous pour continuer</string>
 
     <string name="new_recipe">Nouvelle recette</string>
-    <string name="summary_new_recipe">Trouver cette recette à l\'adresse suivante :  </string>
+    <string name="summary_new_recipe">Trouvez cette recette à l\'adresse suivante :  </string>
 
-    <string name="recipe_add_to_book">Recette ajouté à votre livre de recette</string>
+    <string name="recipe_add_to_book">Recette ajoutée à votre livre de recette</string>
 </resources>

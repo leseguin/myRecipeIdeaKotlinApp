@@ -1,5 +1,6 @@
 package fr.iut.myapplication.ui.joke
 
+import android.Manifest
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -32,11 +33,20 @@ class JokeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         jokeVM = JokeViewModel(requireContext())
         jokeVM.newJoke()
-        button_joke.setOnClickListener { jokeVM.newJoke() }
+        button_joke.setOnClickListener {
+            jokeVM.newJoke()
+        }
         jokeVM.jokeLV.observeForever { text_joke.text = it}
+
     }
+
+
+
+
+
 
 
 }

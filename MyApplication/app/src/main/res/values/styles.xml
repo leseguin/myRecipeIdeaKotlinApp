@@ -39,6 +39,8 @@
     </style>
 
 
+
+
     <style name="textCreationViewTheme">
         <item name="android:textSize">17sp</item>
         <item name="android:background">@drawable/tittle_shape</item>
