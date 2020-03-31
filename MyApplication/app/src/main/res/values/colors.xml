@@ -3,8 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorLightBlue">#C98DC9D3</color>
-    <color name="colorRed">#B7BBBBBB</color>
+    <color name="colorLightBlue">#8DC9D3</color>
+    <color name="colorRed">#BBBBBB</color>
     <color name="colorWhite">#F0F0F0</color>
     <color name="colorBlack">#000000</color>
 
@@ -12,9 +12,9 @@
     <color name="eventColor1">#F3EFC7</color>
     <color name="eventColor2">#F5DBD3</color>
 
-    <color name="eventTitle">#83FFFFFF</color>
+    <color name="eventTitle">#FFFFFF</color>
 
-    <color name="colorDividerGrey">#83E0E0E0</color>
+    <color name="colorDividerGrey">#E0E0E0</color>
 
 
 </resources>

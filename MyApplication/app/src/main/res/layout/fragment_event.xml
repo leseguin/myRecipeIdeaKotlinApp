@@ -56,8 +56,19 @@
                     style="@style/editTextTheme"/>
 
 
-                <View style="@style/Divider"/>
+                <View style="@style/Divider"
+                    android:layout_marginBottom="0dp"/>
+                <TextView
+                    android:id="@+id/guest_event"
+                    android:hint="@string/summary_event"
+                    android:text="@string/tvNumberGuest"
+                    android:textSize="15sp"
+                    android:layout_height="17dp"
+                    android:layout_width="match_parent"
+                    android:textAlignment="center" />
 
+
+                <View style="@style/Divider"/>
 
                 <TableLayout
                     android:layout_width="match_parent"
