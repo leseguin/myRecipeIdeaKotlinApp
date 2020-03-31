@@ -147,7 +147,7 @@ class EventFragment : Fragment() {
             AlertDialog.Builder(activity!!)
                 .setTitle("Delete event")
                 .setMessage("Do you really want to delete ${eventVM.eventLV.value!!.name} ? ")
-                .setPositiveButton(android.R.string.yes) { dialog, which ->
+                .setPositiveButton(android.R.string.yes) { _, _ ->
                     eventVM.deleteEvent()
                     findNavController().navigate(R.id.action_eventFragment_to_nav_event)
                 }

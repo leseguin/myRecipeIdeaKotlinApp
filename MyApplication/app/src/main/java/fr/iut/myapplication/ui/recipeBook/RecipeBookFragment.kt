@@ -78,7 +78,7 @@ class RecipeBookFragment : Fragment()  {
             AlertDialog.Builder(activity!!)
                 .setTitle("Delete event")
                 .setMessage("Do you really want to delete ${recipeBookVM.recipeLV.value!!.title} ? ")
-                .setPositiveButton(android.R.string.yes) { dialog, which ->
+                .setPositiveButton(android.R.string.yes) { _, _ ->
                     recipeBookVM.deleteRecipe()
                     findNavController().navigate(R.id.action_recipeBookFragment_to_nav_recipe_book)
                 }
